@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Text Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'Source Code Pro', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="title-bar" class="w-2/3 mx-auto">
+            <h1
+                class="py-3 text-5xl font-semibold text-sky-800 text-center m-10 border-solid border-sky-800 border-4 rounded-lg hover:bg-sky-800 hover:text-white hover:scale-110 delay-100 duration-500">
+                Advanced
+                Customized Text Editor
+            </h1>
+        </div>
+    </header>
+    <main>
+        <div
+            class="editor-container m-10 p-10 bg-sky-300 min-h-fit mx-auto w-3/4 rounded-lg flex flex-col justify-center items-center shadow-xl">
+            <div class="mb-5 w-full pl-6 flex justify-start gap-6">
+                <button id="preview-button"
+                    class="btn btn-outline btn-primary font-bold text-xl border-2">Preview</button>
+                <button id="selected-text-button" class="btn btn-outline btn-primary font-bold text-xl border-2">Use
+                    Selected Text</button>
+            </div>
+            <div id="editor-container"
+                class="mx-2 p-6 bg-sky-100 border-sky-800 border-2 h-2/3 w-full rounded-md flex-row justify-center items-center">
+                <div class="decoration-tools mb-5 pb-2 border-b-2 border-sky-800 flex justify-between items-center">
+                    <div class="font-styles my-2">
+                        <button class="font-bold btn btn-square btn-outline btn-info text-xl rounded-md cursor-pointer"
+                            title="bold" id="bold">B</button>
+                        <button
+                            class="font-bold italic btn btn-square btn-outline btn-info text-xl rounded-md cursor-pointer"
+                            title="italic" id="italic">I</button>
+                        <button
+                            class="font-bold underline btn btn-square btn-outline btn-info text-xl rounded-md cursor-pointer"
+                            title="underline" id="underline">U</button>
+                        <button
+                            class="font-bold strikethrough btn btn-square btn-outline btn-info text-xl rounded-md cursor-pointer"
+                            title="strikethrough" id="strikethrough">S</button>
+                    </div>
+                    <div class="text-alignment">
+                        <button class="btn btn-square btn-outline btn-info text-sm" title="align-left" id="align-left">
+                            <i class="fa-solid fa-align-left text-xl"></i>
+                        </button>
+                        <button class="btn btn-square btn-outline btn-info text-sm" title="align-center"
+                            id="align-center">
+                            <i class="fa-solid fa-align-center text-xl"></i>
+                        </button>
+                        <button class="btn btn-square btn-outline btn-info text-sm" title="align-right"
+                            id="align-right">
+                            <i class="fa-solid fa-align-right text-xl"></i>
+                        </button>
+                        <button class="btn btn-square btn-outline btn-info text-sm" title="align-justify"
+                            id="align-justify">
+                            <i class="fa-solid fa-align-justify text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="text-format">
+                        <input
+                            class="border-sky-800 border-2 shadow-sm hover:scale-110 cursor-pointer w-16 p-3 rounded-lg text-sky-800"
+                            title="Font Size" type="number" id="font-size-input" name="font-size-input" value="16"
+                            min="0" max="99">
+                        <button
+                            class="font-bold btn btn-square btn-outline btn-info text-lg rounded-md cursor-pointer normal-case"
+                            title="uppercase" id="uppercase">aA</button>
+                        <input class="border-sky-800 border-2 shadow-sm hover:scale-110 cursor-pointer"
+                            title="Color Picker" type="color" id="color-picker" name="color-picker" value="#fff">
+                    </div>
+                </div>
+                <textarea class="w-full p-3 caret-sky-700 resize-y" title="editor" name="editor" id="editor" cols="120"
+                    rows="10" placeholder="write your text here"></textarea>
+            </div>
+            <div id="preview-container"
+                class="hidden mx-2 p-6 bg-sky-100 border-sky-800 border-2 h-2/3 w-full rounded-md flex-row justify-center items-center">
+                <div class="w-full p-3 caret-sky-700 resize-y" title="editor-preview" id="editor-preview"></div>
+            </div>
+        </div>
+    </main>
+    <script src="scripts/editor.js"></script>
+</body>
+
+</html>
