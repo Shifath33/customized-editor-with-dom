@@ -127,6 +127,8 @@ const editorTextElement = document.getElementById("editor");
 const previewButton = document.getElementById("preview-button");
 
 previewButton.addEventListener("click", function () {
+    editorPreviewElement.classList = [];
+    console.log(previewContainer.classList);
     if (previewContainer.classList.contains("hidden")) {
         previewContainer.classList.remove("hidden");
         editorContainer.classList.add("hidden");
